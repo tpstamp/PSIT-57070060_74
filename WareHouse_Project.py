@@ -45,24 +45,7 @@ def warehouse():
                       ((60 - float(time_deposit[1]))/60) +\
                       time[time_receive[0]+time_receive[2]] +\
                       (float(time_receive[1])/60)) * 5.5 # night
-            price += (int(day_receive[0]) - int(day_deposit[0]) - 1) * 120 # all day
-
-            
-    elif time_deposit[2] == 'AM' and time_receive[2] == 'PM'\
-       and int(day_receive[0]) - int(day_deposit[0]) >= 1:
-
-    elif time_deposit[2] == 'AM' and time_receive[2] == 'AM'\
-       and int(day_receive[0]) - int(day_deposit[0]) >= 1:
-
-    elif time_deposit[2] == 'PM' and time_receive[2] == 'PM'\
-       and int(day_receive[0]) - int(day_deposit[0]) >= 1:
-
-    
-
-    
-              
-        
-warehouse()
+            price += (int(day_receive[0]) - int(day_deposit[0]) - 1) * 120 # all daywarehouse()
 
     
     
