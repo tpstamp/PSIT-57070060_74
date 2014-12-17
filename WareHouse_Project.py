@@ -4,7 +4,7 @@ Contributors   : Natcha(60)
                  Pongsathorn(74)
 Language       : Python 2.7.8
 GUI design IDE : Tkinter
-Date modifire  : 16/12/14
+Date modifire  : 17/12/14
 
 __a program to calculate the warehousing costs__
 input -> size and amountof product, date and time deposit, and date and time receive
@@ -36,7 +36,6 @@ class App:
         '''
         
         # All of value
-        
         self.wide = DoubleVar(value=0)
         self.longth = DoubleVar(value=0)
         self.high = DoubleVar(value=0)
@@ -48,7 +47,6 @@ class App:
         self.ans_price = IntVar()
 
         # All of getting
-        
         self.valwide = self.textfill(self.wide)
         self.vallong = self.textfill(self.longth)
         self.valhigh = self.textfill(self.high)
@@ -63,7 +61,6 @@ class App:
         Button(main, font=('fantasy', 14, 'bold'), text = 'Detail', command = self.detail_frame).place(x = 40, y = 592)
         
         # Placr Getting
-        
         self.valwide.place(x = 113, y = 170)
         self.vallong.place(x = 113, y = 200)
         self.valhigh.place(x = 113, y = 230)
@@ -75,10 +72,9 @@ class App:
         self.valprice.place(x = 88, y = 513)  
         
         # All of Label text
+        Label(main, font=('fantasy', 7), text='Dev by NatChu, TpStamp - Dec2014').place(x = 199, y = 645)
         
-        Label(main, font=('fantasy', 7), text='Dev by NutChu, TpStamp - Dec2014').place(x = 199, y = 645)
-        
-        #____________________________________________________________________________________________________
+    #________________________________________________________________________________________________________
 
     def textfill(self, all_var, side=16):
         '''
@@ -86,7 +82,7 @@ class App:
         '''
         return Entry(main, textvariable = all_var, width = side)
 
-        #____________________________________________________________________________________________________
+    #________________________________________________________________________________________________________
 
     def calculate(self):
         '''
@@ -95,7 +91,6 @@ class App:
         try:
 
             # Get value from window
-            
             wide = self.wide.get()
             longth = self.longth.get()
             high = self.high.get()
@@ -112,6 +107,7 @@ class App:
                 hr_receive = 0
             if hr_deposit > 23 or hr_receive > 23:
                 error = 0/0
+                
             # Calcuate
             amount_per_column = int(10/high)
             column = float(amount) / amount_per_column
@@ -154,6 +150,7 @@ class App:
             elif hm_deposit == hm_receive:
                 price += ((int(year_receive) - int(year_deposit))*43800.0) +\
                          ((md_receive - md_deposit) * 120.0)
+                
             # deposit
             else:
                 if hm_deposit >= 0 and hm_deposit <= 360:
@@ -190,7 +187,7 @@ class App:
             Msgbox.showerror(title='Value Error', message='Value are Incorrect\n Please Read a Detail!!')
             self.detail_frame()
 
-        #____________________________________________________________________________________________________
+    #________________________________________________________________________________________________________
 
     def reset(self):
         '''reset all value'''
@@ -213,7 +210,7 @@ class App:
         self.valprice.delete(0, END)
         self.valprice.insert(0, 0)
 
-        #____________________________________________________________________________________________________
+    #________________________________________________________________________________________________________
 
     def detail_frame(self):
         '''this is all detail'''
@@ -230,13 +227,12 @@ class App:
         
         Button(self.detail, font=('fantasy', 16, 'bold'), text = 'Agree..!!', command = self.detail_des).place(x = 380, y = 366)
 
-        #____________________________________________________________________________________________________
+    #________________________________________________________________________________________________________
         
     def detail_des(self):
         '''destroy a detail'''
         self.detail.destroy()
 
-        #____________________________________________________________________________________________________
 
 
 # Main loop__________________________________________________________________________________________________
@@ -248,7 +244,7 @@ main.title('Archive Store')
 main.geometry('360x660')
 main.resizable(False, False)
 
-image = Image.open("bg.jpg")
+image = Image.open("home.jpg")
 photo = ImageTk.PhotoImage(image)
 mainphoto = Label(image=photo)
 mainphoto.image = photo
